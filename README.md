@@ -55,23 +55,24 @@ Add following file to your blog post directory.
 ```md
 
 Following block will be run by runner
-\```cli
+```cli
 pnpm --init
 pnpm install typescript
 tsc --init
-\```
+```
 
 Following code will be created by runner
-\```ts logging.ts
+```ts logging.ts
 console.log("hello world")
-\```
+```
 
 
 Following code updated by runner
-\```ts diff
+```ts diff
 - console.log("hello world")
 + console.log("hello people")
-\```
+```
+
 ```
 
 ## Blog polyfill
