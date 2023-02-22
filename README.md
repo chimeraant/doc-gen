@@ -1,7 +1,31 @@
 # doc-gen
 Satori + animation + html + tailwind + nix + command line + markdown + diff
 
-Blog polyfill
+- Markdown Runner
+- Better Syntax
+- Blog Utils
+
+# Markdown runner
+
+# Problem of writing tech blog / docs
+
+## Prone to human error
+Running command and writing code on local machine,
+then manually copy and paste the command to markdown is prone to error.
+
+## Not (easily) reproducible
+- Dependecies might not be specified
+  - Dependecies might be updated
+
+Solution: run it automatically
+
+# Problem of automatically running Readme.md
+
+Installing dependencies just for the sake of writing blog will polute our local environment
+
+Managing different dependencies for each post is hard
+
+Each blog post might have same dependency with different versions
 
 # Features
 
@@ -20,20 +44,15 @@ Blog polyfill
 - Runs without (docker) container
 
 ### Directory level dependency isolation
-Nix can isolate dependencies between directory using [direnv](https://direnv.net/)
+Nix can isolate dependencies between directory when combined with [direnv](https://direnv.net/)
 - Not polluting your environment
 - Can install dependencies per blog post
   - e.g. Node.js 16 on blog post A, Node.js 17 on blog post B
   - Old blog post always run on the environment specified by `flake.nix` on that folder, so the commands won't break
 
-## Markdown Runner
+# Run the docs automatically
 
-### Problem of writing tech blog
-- Prone to human error
-
-### Just run it automatically
-
-#### Prepare isolated env with flake.nix
+## Prepare isolated env with flake.nix
 
 Add following file to your blog post directory.
 ```nix
@@ -50,7 +69,7 @@ Add following file to your blog post directory.
 }
 ```
 
-#### Create Readme.md
+## Create Readme.md
 
 Runner will run this commands
 ```
