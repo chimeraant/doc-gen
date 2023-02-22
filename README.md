@@ -68,7 +68,7 @@ console.log("hello world")
 
 
 Following code updated by runner
-```diff logging.ts
+```diff
 - console.log("hello world")
 + console.log("hello people")
 ```
