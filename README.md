@@ -1,12 +1,6 @@
 # doc-gen
 Satori + animation + html + tailwind + nix + command line + markdown + diff
 
-- Markdown Runner
-- Better Syntax
-- Blog Utils
-
-# Markdown runner
-
 # Problem of writing tech blog / docs
 
 ## Prone to human error
@@ -27,30 +21,20 @@ Managing different dependencies for each post is hard
 
 Each blog post might have same dependency with different versions
 
-# Features
-
-## [Shiki](https://github.com/shikijs/shiki)
-- Can use any theme from vscode
-- Can use any language supported on vscode
-
-## [Twoslash](https://www.npmjs.com/package/@typescript/twoslash)
-- IDE features on markdown
-- Use LSP for all languages
-
-## [Nix](https://github.com/NixOS/nix)
+## Enter [Nix](https://github.com/NixOS/nix)
 - Manage dependencies
 - Can run on mac & linux & Github Actions
   - No "Node.js version I wanted is not instaled on Github Actions" problem
 - Runs without (docker) container
 
-### Directory level dependency isolation
+## Directory level dependency isolation
 Nix can isolate dependencies between directory when combined with [direnv](https://direnv.net/)
 - Not polluting your environment
 - Can install dependencies per blog post
   - e.g. Node.js 16 on blog post A, Node.js 17 on blog post B
   - Old blog post always run on the environment specified by `flake.nix` on that folder, so the commands won't break
 
-# Run the docs automatically
+# Getting Started
 
 ## Prepare isolated env with flake.nix
 
@@ -82,23 +66,48 @@ tsc --init
 
 Runner will create logging.ts
 ```
-```ts logging.ts
+```ts rn logging.ts
 console.log("hello world")
 \\```
 ```
 
-
 Runner will update logging.ts
 ```
-```diff logging.ts
+```diff rn logging.ts
 - console.log("hello world")
 + console.log("hello people")
 \\```
 ```
 
+Custom commands
+Show files
+Show line 1-5 of logging.ts
+```rn
+cat logging.ts 1-5
+```
+
+# Better syntax
+Like [Shiki Twoslash](https://shikijs.github.io/twoslash/),
+but supports any languages
+- IDE features on markdown
+- Use LSP for all languages
+- Can hover over variables with mouse
+- Comment queries
+- Cut
+- Autocomplete
+- Errors
+- Can `cat` files
+
 ## Blog polyfill
-dev.to
-zenn
+
+### Shiki
+- Render fully featured html for self hosted blog
+- Only show pure md to dev.to
+
+### [Mermaid](https://github.com/mermaid-js/mermaid)
+- Show pure md on github
+- Render as svg on self hosted html blog
+- Render to png on dev.to
 
 ## SVG All
 Satori
