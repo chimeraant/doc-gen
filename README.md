@@ -52,27 +52,29 @@ Add following file to your blog post directory.
 
 #### Create Readme.md
 
-```md
-
-Following block will be run by runner
+Runner will run this commands
+```
 ```cli
 pnpm --init
 pnpm install typescript
 tsc --init
+\\```
 ```
 
-Following code will be created by runner
+Runner will create logging.ts
+```
 ```ts logging.ts
 console.log("hello world")
+\\```
 ```
 
 
-Following code updated by runner
-```diff
+Runner will update logging.ts
+```
+```diff logging.ts
 - console.log("hello world")
 + console.log("hello people")
-```
-
+\\```
 ```
 
 ## Blog polyfill
